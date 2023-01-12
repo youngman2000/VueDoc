@@ -9,7 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "@ant-design/icons-vue": "^6.1.0",
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "ant-design-vue": "^3.2.15",
+    "highlight.js": "^11.7.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
