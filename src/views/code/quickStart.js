@@ -2,8 +2,8 @@
  * @Author: youngsuper 1406422800@qq.com
  * @Date: 2023-01-12 23:57:44
  * @LastEditors: youngsuper 1406422800@qq.com
- * @LastEditTime: 2023-01-13 01:42:26
- * @FilePath: /VUEDocument0907/src/views/code/quickStart.js
+ * @LastEditTime: 2023-01-13 14:10:13
+ * @FilePath: /vue-document/src/views/code/quickStart.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 const code = {
@@ -69,5 +69,21 @@ Done.`,
       }
     }).mount("#app")
   `,
+  code10:`<!-- index.html -->
+<script type="module>
+  import {createApp} from 'vue'
+  import MyComponent from './my-component.js
+  createApp(MyComponent).mount('#app')
+</script>`,
+code11:`export default {
+  data(){
+    return {
+      count:0
+    },
+
+  },
+  template:'<div> count is {{count}}</div>'
+}
+`
 };
 export { code }

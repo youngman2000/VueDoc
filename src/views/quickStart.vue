@@ -2,7 +2,7 @@
  * @Author: youngsuper 1406422800@qq.com
  * @Date: 2022-09-07 23:32:15
  * @LastEditors: youngsuper 1406422800@qq.com
- * @LastEditTime: 2023-01-13 01:45:08
+ * @LastEditTime: 2023-01-13 14:18:26
  * @FilePath: /VUEDocument0907/src/views/quickStart.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -115,19 +115,60 @@
         ></ExclamationCircleOutlined>
         导入映射表的浏览器支持情况
       </h4>
-      <div>
+      <p>
         目前只有基于Chromium的浏览器支持导入映射表，所以我们推荐你在学习过程中使用Chrome或Edge。
-      </div>
+      </p>
+      <p>
+        如果你使用的是Firefox浏览器，则该功能仅支持在102+版本中受支持，且目前需要启用about:config中的dom.importMaps.enabled选项。
+      </p>
+      <p>
+        如果你更喜欢那些还不支持的导入映射表的浏览器，你可以使用es-module-shims来进行poyfill
+      </p>
     </a-card>
+    <p></p>
+    <a-card>
+      <h4>
+        <warning-outlined :style="{ color: '#3b9c71' }" /> 生产环境中的注意事项
+      </h4>
+      <p>
+        到目前为止示例中使用的Vue的开发构建版本--如果你打算在生产中通过CDN使用Vue，请务必查看生产环境部署指南
+      </p>
+    </a-card>
+    <p></p>
+    <h3>拆分模块</h3>
+    <p>
+      随着对这份指南的深入，我们可能需要把代码分割成单独的JavaScript文件，以便更容易管理。例如：
+    </p>
+    <highlightjs :code="code.code10"></highlightjs>
+    <highlightjs :code="code.code11"></highlightjs>
+    <p>
+      如果直接在浏览器中打开了上面的index.html，你会发现它抛出了一个错误，因为ES模块不能通过file协议工作。为了使其工作，你需要使用本地HTTP服务器通过<PreCode
+        value="http://"
+      ></PreCode>
+      协议提供 <PreCode value="index.html"></PreCode>
+    </p>
+    <p>
+      要启动一个本地HTTP服务器，请先安装Node.js,然后通过命令行在HTML文件所在文件夹下运行
+      <PreCode value="npx server"></PreCode
+      >。你也可以使用其他任何可以基于正确的MIME类型服务静态文件的HTTP服务器。
+    </p>
+    <p>
+      可能你也注意到了，这里导入的组件模板是内联的JavaScript字符串。如果你正在使用VSCode，你可以安装es6-string-html扩展，然后再字符串前家伙是哪跟一个前缀注释
+      <PreCode value="/*html*/"></PreCode>以高亮语法。
+    </p>
   </div>
 </template>
 <script>
-import { ExclamationCircleOutlined } from "@ant-design/icons-vue";
+import {
+  ExclamationCircleOutlined,
+  WarningOutlined,
+} from "@ant-design/icons-vue";
 import { code } from "@/views/code/quickStart.js";
 
 export default {
   components: {
     ExclamationCircleOutlined,
+    WarningOutlined,
   },
 
   setup() {
